@@ -1,0 +1,8 @@
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\obj\Debug\Example.csprojResolveAssemblyReference.cache
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\bin\Debug\Example.exe.config
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\bin\Debug\Example.exe
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\bin\Debug\Example.pdb
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\bin\Debug\Snile.dll
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\bin\Debug\Snile.pdb
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\obj\Debug\Example.exe
+c:\Users\Joe\documents\visual studio 2012\Projects\Snile\Example\obj\Debug\Example.pdb

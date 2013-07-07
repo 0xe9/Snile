@@ -1,0 +1,5 @@
+c:\users\joe\documents\visual studio 2012\Projects\Snile\Snile\bin\Debug\Snile.dll
+c:\users\joe\documents\visual studio 2012\Projects\Snile\Snile\bin\Debug\Snile.pdb
+c:\users\joe\documents\visual studio 2012\Projects\Snile\Snile\obj\Debug\Snile.csprojResolveAssemblyReference.cache
+c:\users\joe\documents\visual studio 2012\Projects\Snile\Snile\obj\Debug\Snile.dll
+c:\users\joe\documents\visual studio 2012\Projects\Snile\Snile\obj\Debug\Snile.pdb
