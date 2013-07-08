@@ -8,9 +8,9 @@ namespace Snile.CLR
 {
     public class Stream
     {
-        private string name;
-        private UInt32 offset;
-        private UInt32 size;
+        public string name;
+        public uint offset;
+        public uint size;
 
         public Stream(string name, uint offset, uint size)
         {
@@ -24,12 +24,12 @@ namespace Snile.CLR
             return this.name;
         }
 
-        public UInt32 GetOffset()
+        public uint GetOffset()
         {
             return this.offset;
         }
 
-        public UInt32 GetSize()
+        public uint GetSize()
         {
             return this.size;
         }

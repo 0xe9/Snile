@@ -11,8 +11,6 @@ namespace Snile.CLR
 
     public class Streams
     {
-        private List<Stream> streams = new List<Stream>();
-
         private DataStream memStream = null;
         private BinaryParser binaryParser = null;
 
@@ -20,7 +18,7 @@ namespace Snile.CLR
 
         private int streamCount = 0;
 
-        private long streamAddress;
+        public TableHeap tableHeap;
 
         public Streams(Reader reader)
         {
@@ -31,10 +29,34 @@ namespace Snile.CLR
             this.streamHeaderAddress = (long)(metaDataHeaderAddress + 0x20);
             this.streamCount = (int)reader.GetMetadataHeader().GetNumberOfStreams();
 
-            for (int i = 0; i < streamCount; i++)
-            {
+            binaryParser.BaseStream.Position = streamHeaderAddress;
 
+            uint offset = binaryParser.ReadUInt32();
+            uint size = binaryParser.ReadUInt32();
+            string name;
+
+            char[] chars = new char[32];
+            int index = 0;
+            byte character = 0;
+            while ((character = binaryParser.ReadByte()) != 0)
+                chars[index++] = (char)character;
+
+            index++;
+            int padding = ((index % 4) != 0) ? (4 - (index % 4)) : 0;
+            binaryParser.ReadBytes(padding);
+
+            name = new String(chars).Trim(new Char[] { '\0' });
+
+            if (name == "#~")
+            {
+                this.tableHeap = new TableHeap(name, offset, size);
             }
+
+        }
+
+        public TableHeap GetTableHeap()
+        {
+            return this.tableHeap;
         }
     }
 }

@@ -44,6 +44,7 @@
     <Compile Include="CLR\MetadataHeader.cs" />
     <Compile Include="CLR\Stream.cs" />
     <Compile Include="CLR\Streams.cs" />
+    <Compile Include="CLR\TableHeap.cs" />
     <Compile Include="DataStream.cs" />
     <Compile Include="PE\DataDirectories.cs" />
     <Compile Include="PE\DataDirectory.cs" />
