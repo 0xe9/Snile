@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Snile.CLR
 {
-    public class TableHeap : Stream
+    public class UserStringsHeap : Stream
     {
         private BinaryParser binaryParser;
 
@@ -16,8 +16,8 @@ namespace Snile.CLR
         public uint offset;
         public uint size;
 
-        public TableHeap(Reader reader, string name, uint offset, uint size)
-            :base(name, offset, size)
+        public UserStringsHeap(Reader reader, string name, uint offset, uint size)
+            : base(name, offset, size)
         {
             this.binaryParser = reader.GetBinaryParser();
             this.name = name;

@@ -40,11 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryParser.cs" />
+    <Compile Include="CLR\BlobHeap.cs" />
     <Compile Include="CLR\CLRHeader.cs" />
+    <Compile Include="CLR\GUIDHeap.cs" />
     <Compile Include="CLR\MetadataHeader.cs" />
     <Compile Include="CLR\Stream.cs" />
     <Compile Include="CLR\Streams.cs" />
+    <Compile Include="CLR\StringsHeap.cs" />
     <Compile Include="CLR\TableHeap.cs" />
+    <Compile Include="CLR\UserStringsHeap.cs" />
     <Compile Include="DataStream.cs" />
     <Compile Include="PE\DataDirectories.cs" />
     <Compile Include="PE\DataDirectory.cs" />

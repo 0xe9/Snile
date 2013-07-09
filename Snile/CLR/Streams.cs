@@ -11,6 +11,8 @@ namespace Snile.CLR
 
     public class Streams
     {
+        public Stream[] streams;
+
         private DataStream memStream = null;
         private BinaryParser binaryParser = null;
 
@@ -19,6 +21,10 @@ namespace Snile.CLR
         private int streamCount = 0;
 
         public TableHeap tableHeap;
+        public StringsHeap stringsHeap;
+        public UserStringsHeap userStringsHeap;
+        public GUIDHeap guidHeap;
+        public BlobHeap blobHeap;
 
         public Streams(Reader reader)
         {
@@ -30,6 +36,8 @@ namespace Snile.CLR
             this.streamCount = (int)reader.GetMetadataHeader().GetNumberOfStreams();
 
             binaryParser.BaseStream.Position = streamHeaderAddress;
+
+            streams = new Stream[this.streamCount];
 
             int count = 0;
 
@@ -69,16 +77,61 @@ namespace Snile.CLR
 
                 if(((name.Equals("#-")) || ((name.Equals("#~")))))
                 {
-
+                    this.tableHeap = new TableHeap(reader, name, offset, size);
                 }
+
+                if (name.Equals("#Strings"))
+                {
+                    this.stringsHeap = new StringsHeap(reader, name, offset, size);
+                }
+
+                if (name.Equals("#US"))
+                {
+                    this.userStringsHeap = new UserStringsHeap(reader, name, offset, size);
+                }
+
+                if (name.Equals("#GUID"))
+                {
+                    this.guidHeap = new GUIDHeap(reader, name, offset, size);
+                }
+
+                if (name.Equals("#Blob"))
+                {
+                    this.blobHeap = new BlobHeap(reader, name, offset, size);
+                }
+                this.streams[i] = new Stream(name, offset, size);
             }
 
         }
 
-
         public TableHeap GetTableHeap()
         {
             return this.tableHeap;
+        }
+
+        public StringsHeap GetStringsHeap()
+        {
+            return this.stringsHeap;
+        }
+
+        public UserStringsHeap GetUserStringsHeap()
+        {
+            return this.userStringsHeap;
+        }
+
+        public GUIDHeap GetGUIDHeap()
+        {
+            return this.guidHeap;
+        }
+
+        public BlobHeap GetBlobHeap()
+        {
+            return this.blobHeap;
+        }
+
+        public Stream[] GetStreams()
+        {
+            return this.streams;
         }
     }
 }
