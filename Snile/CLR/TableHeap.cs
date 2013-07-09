@@ -10,12 +10,15 @@ namespace Snile.CLR
 {
     public class TableHeap
     {
+        private BinaryParser binaryParser;
+
         public string name;
         public uint offset;
         public uint size;
 
-        public TableHeap(string name, uint offset, uint size)
+        public TableHeap(Reader reader, string name, uint offset, uint size)
         {
+            this.binaryParser = reader.GetBinaryParser();
             this.name = name;
             this.offset = offset;
             this.size = size;

@@ -21,9 +21,9 @@ namespace Example
             Reader reader = new Reader(filePath);
 
             Streams s = new Streams(reader);
-            TableHeap tableHeap = s.GetTableHeap();
+            //TableHeap tableHeap = s.GetTableHeap();
 
-            Console.WriteLine(" -Name: " + tableHeap.name + " Offset: 0x{0:X6} -Size: 0x{1:X6}", tableHeap.offset, tableHeap.size);
+            //Console.WriteLine(" -Name: " + tableHeap.name + " Offset: 0x{0:X6} -Size: 0x{1:X6}", tableHeap.offset, tableHeap.size);
 
             #region done
             //#region DOS

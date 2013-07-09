@@ -31,28 +31,50 @@ namespace Snile.CLR
 
             binaryParser.BaseStream.Position = streamHeaderAddress;
 
-            uint offset = binaryParser.ReadUInt32();
-            uint size = binaryParser.ReadUInt32();
-            string name;
+            int count = 0;
 
-            char[] chars = new char[32];
-            int index = 0;
-            byte character = 0;
-            while ((character = binaryParser.ReadByte()) != 0)
-                chars[index++] = (char)character;
-
-            index++;
-            int padding = ((index % 4) != 0) ? (4 - (index % 4)) : 0;
-            binaryParser.ReadBytes(padding);
-
-            name = new String(chars).Trim(new Char[] { '\0' });
-
-            if (name == "#~")
+            for (int i = 0; i < this.streamCount; i++)
             {
-                this.tableHeap = new TableHeap(name, offset, size);
+                string name;
+                long start = streamHeaderAddress + count;
+                long streamStart = start + (i * 4);
+
+                binaryParser.BaseStream.Position = streamStart;
+                uint offset = binaryParser.ReadUInt32();
+                uint size = binaryParser.ReadUInt32();
+
+                List<char> buff = new List<char>();
+                char next;
+                do
+                {
+                    next = this.binaryParser.ReadChar();
+                    buff.Add(next);
+                } while (this.binaryParser.BaseStream.Position % 4 != 0 || next != '\0');
+
+                name = new string(buff.TakeWhile(sName => !sName.Equals('\0')).ToArray());
+
+
+                if (name.Length >= 8)
+                {
+                    count += 16;
+                }
+                else if (name.Length >= 4)
+                {
+                    count += 12;
+                }
+                else
+                {
+                    count += 8;
+                }
+
+                if(((name.Equals("#-")) || ((name.Equals("#~")))))
+                {
+
+                }
             }
 
         }
+
 
         public TableHeap GetTableHeap()
         {
