@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Snile.CLR
 {
-    public class BlobHeap : Stream
+    public class BlobHeap : MetadataStream
     {
         private BinaryParser binaryParser;
 

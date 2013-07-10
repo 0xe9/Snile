@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Snile.CLR
 {
-    public class UserStringsHeap : Stream
+    public class UserStringsHeap : MetadataStream
     {
         private BinaryParser binaryParser;
 

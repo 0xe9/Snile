@@ -133,6 +133,9 @@ namespace Snile.Snile
             return new MetadataHeader(this);
         }
 
-
+        public StreamParser GetStreamParser()
+        {
+            return new StreamParser(this);
+        }
     }
 }

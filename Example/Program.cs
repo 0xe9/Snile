@@ -20,10 +20,13 @@ namespace Example
 
             Reader reader = new Reader(filePath);
 
-            Streams s = new Streams(reader);
-            //TableHeap tableHeap = s.GetTableHeap();
-
-            //Console.WriteLine(" -Name: " + tableHeap.name + " Offset: 0x{0:X6} -Size: 0x{1:X6}", tableHeap.offset, tableHeap.size);
+            MetadataStreamHeader msh = reader.GetStreamParser().GetTableHeap().GetStreamHeader();
+            Console.WriteLine(" -Major Version: 0x{0:X6}", msh.GetMajorVersion());
+            Console.WriteLine(" -Minor Version: 0x{0:X6}", msh.GetMinorVersion());
+            //Console.WriteLine(" - " + msh.GetTableCount() + " tables");
+            //Console.WriteLine(" -Heap Offset Sizes: 0x{0:X6}", msh.GetHeapOffsetSizes());
+            //Console.WriteLine(" -Valid Tables: 0x{0:X6}", msh.GetValidTables());
+            //Console.WriteLine(" -Sorted Tables: 0x{0:X6}", msh.GetSortedTables());
 
             #region done
             //#region DOS
@@ -169,6 +172,13 @@ namespace Example
             //Console.WriteLine(" -Flags: 0x{0:X6}", meta.GetFlags());
             //Console.WriteLine(" -Number of Streams: 0x{0:X6}", meta.GetNumberOfStreams());
             //Console.WriteLine("");
+            //#endregion
+            //#region STREAMS
+            //Console.WriteLine("Streams: ");
+            //foreach (Stream stream in reader.GetStreamParser().GetStreams())
+            //{
+            //    Console.WriteLine(" -Name: " + stream.GetName() + " Offset: 0x{0:X6} -Size: 0x{1:X6}", stream.GetOffset(), stream.GetSize());
+            //}
             //#endregion
             #endregion
 

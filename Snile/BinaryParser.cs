@@ -29,6 +29,18 @@ namespace Snile
             return (UInt32)(memoryStream.Position = this.ReadUInt32());
         }
 
+        public UInt64 ParseUInt64(long dest)
+        {
+            memoryStream.Position = dest;
+            return (UInt64)(this.ReadInt64());
+        }
+
+        public byte[] ParseBytes(long dest, int size)
+        {
+            memoryStream.Position = dest;
+            return (byte[])(this.ReadBytes(size));
+        }
+
         public byte ParseByte(long dest)
         {
             memoryStream.Position = dest;

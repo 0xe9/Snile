@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Snile.CLR
 {
-    public class GUIDHeap : Stream
+    public class GUIDHeap : MetadataStream
     {
         private BinaryParser binaryParser;
 

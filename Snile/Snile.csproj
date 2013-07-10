@@ -44,8 +44,9 @@
     <Compile Include="CLR\CLRHeader.cs" />
     <Compile Include="CLR\GUIDHeap.cs" />
     <Compile Include="CLR\MetadataHeader.cs" />
-    <Compile Include="CLR\Stream.cs" />
-    <Compile Include="CLR\Streams.cs" />
+    <Compile Include="CLR\MetadataStreamHeader.cs" />
+    <Compile Include="CLR\MetadataStream.cs" />
+    <Compile Include="CLR\StreamParser.cs" />
     <Compile Include="CLR\StringsHeap.cs" />
     <Compile Include="CLR\TableHeap.cs" />
     <Compile Include="CLR\UserStringsHeap.cs" />
